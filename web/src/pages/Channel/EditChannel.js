@@ -25,6 +25,9 @@ const EditChannel = () => {
     type: 1,
     key: '',
     base_url: '',
+    order: 0,
+    // The frequency is automatically disabled
+    overFrequencyAutoDisable:false,
     other: '',
     model_mapping: '',
     models: [],
@@ -38,8 +41,24 @@ const EditChannel = () => {
   const [basicModels, setBasicModels] = useState([]);
   const [fullModels, setFullModels] = useState([]);
   const [customModel, setCustomModel] = useState('');
+  const [overFrequencyAutoDisable, setOverFrequencyAutoDisable] = useState(false);
+
   const handleInputChange = (e, { name, value }) => {
     setInputs((inputs) => ({ ...inputs, [name]: value }));
+    if (name === 'sort'){
+        setInputs((inputs) => ({ ...inputs, [name]: parseInt(value) }));
+    }
+    if (name === 'overFrequencyAutoDisable') {
+      value = value === 'true' ? 'false' : 'true';
+      if (value === 'true'){
+        // setOverFrequencyAutoDisable(true);
+        setInputs((inputs) => ({ ...inputs, [name]: true }));
+      }else {
+        // setOverFrequencyAutoDisable(false);
+        setInputs((inputs) => ({ ...inputs, [name]: false }));
+      }
+      return;
+    }
     if (name === 'type' && inputs.models.length === 0) {
       let localModels = [];
       switch (value) {
@@ -406,6 +425,26 @@ const EditChannel = () => {
               </Form.Field>
             )
           }
+          <Form.Field>
+            <Form.Input
+                label='强制指定使用顺序'
+                name='sort'
+                placeholder={'此项可选，默认值0,大的先使用,用完才会用小的'}
+                onChange={handleInputChange}
+                value={inputs.sort}
+                autoComplete='new-password'
+                type='number'
+            />
+          </Form.Field>
+          <Form.Field>
+            <Form.Checkbox
+                checked={inputs.overFrequencyAutoDisable === true}
+                label='超过频率报错429是否自动禁用通道'
+                name='overFrequencyAutoDisable'
+                onChange={handleInputChange}
+            />
+          </Form.Field>
+
           <Button onClick={handleCancel}>取消</Button>
           <Button type={isEdit ? 'button' : 'submit'} positive onClick={submit}>提交</Button>
         </Form>

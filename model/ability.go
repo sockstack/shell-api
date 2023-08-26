@@ -10,15 +10,19 @@ type Ability struct {
 	Model     string `json:"model" gorm:"primaryKey;autoIncrement:false"`
 	ChannelId int    `json:"channel_id" gorm:"primaryKey;autoIncrement:false;index"`
 	Enabled   bool   `json:"enabled"`
+	// 新增排序字段,默认为0
+	Sort int `json:"sort" gorm:"default:0"`
 }
 
 func GetRandomSatisfiedChannel(group string, model string) (*Channel, error) {
 	ability := Ability{}
 	var err error = nil
 	if common.UsingSQLite {
-		err = DB.Where("`group` = ? and model = ? and enabled = 1", group, model).Order("RANDOM()").Limit(1).First(&ability).Error
+		//	根据sort和random排序
+		err = DB.Where("`group` = ? and model = ? and enabled = 1", group, model).Order("sort desc, RANDOM()").Limit(1).First(&ability).Error
 	} else {
-		err = DB.Where("`group` = ? and model = ? and enabled = 1", group, model).Order("RAND()").Limit(1).First(&ability).Error
+		//	根据sort和random排序
+		err = DB.Where("`group` = ? and model = ? and enabled = 1", group, model).Order("sort desc, RAND()").Limit(1).First(&ability).Error
 	}
 	if err != nil {
 		return nil, err
@@ -40,6 +44,7 @@ func (channel *Channel) AddAbilities() error {
 				Model:     model,
 				ChannelId: channel.Id,
 				Enabled:   channel.Status == common.ChannelStatusEnabled,
+				Sort:      channel.Sort,
 			}
 			abilities = append(abilities, ability)
 		}
