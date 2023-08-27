@@ -48,16 +48,10 @@ const EditChannel = () => {
     if (name === 'sort'){
         setInputs((inputs) => ({ ...inputs, [name]: parseInt(value) }));
     }
-    if (name === 'overFrequencyAutoDisable') {
-      value = value === 'true' ? 'false' : 'true';
-      if (value === 'true'){
-        // setOverFrequencyAutoDisable(true);
-        setInputs((inputs) => ({ ...inputs, [name]: true }));
-      }else {
-        // setOverFrequencyAutoDisable(false);
-        setInputs((inputs) => ({ ...inputs, [name]: false }));
-      }
-      return;
+    if (name === 'overFrequencyAutoDisable'){
+      let newOverFrequencyAutoDisable = !overFrequencyAutoDisable
+      setOverFrequencyAutoDisable(newOverFrequencyAutoDisable);
+      setInputs((inputs) => ({ ...inputs, 'overFrequencyAutoDisable': newOverFrequencyAutoDisable }));
     }
     if (name === 'type' && inputs.models.length === 0) {
       let localModels = [];
@@ -105,6 +99,7 @@ const EditChannel = () => {
       if (data.model_mapping !== '') {
         data.model_mapping = JSON.stringify(JSON.parse(data.model_mapping), null, 2);
       }
+      setOverFrequencyAutoDisable(data.overFrequencyAutoDisable);
       setInputs(data);
     } else {
       showError(message);
@@ -438,7 +433,7 @@ const EditChannel = () => {
           </Form.Field>
           <Form.Field>
             <Form.Checkbox
-                checked={inputs.overFrequencyAutoDisable === true}
+                checked={overFrequencyAutoDisable}
                 label='超过频率报错429是否自动禁用通道'
                 name='overFrequencyAutoDisable'
                 onChange={handleInputChange}
