@@ -434,7 +434,7 @@ const EditChannel = () => {
           <Form.Field>
             <Form.Checkbox
                 checked={overFrequencyAutoDisable}
-                label='超过频率报错429是否自动禁用通道'
+                label='超过频率报错429是否自动禁用通道(禁用后每隔5分钟轮训一次如果复活则自动启用通道)'
                 name='overFrequencyAutoDisable'
                 onChange={handleInputChange}
             />

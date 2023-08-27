@@ -1,6 +1,7 @@
 package controller
 
 import (
+	"bufio"
 	"bytes"
 	"encoding/json"
 	"errors"
@@ -10,6 +11,7 @@ import (
 	"one-api/common"
 	"one-api/model"
 	"strconv"
+	"strings"
 	"sync"
 	"time"
 )
@@ -65,7 +67,30 @@ func testChannel(channel *model.Channel, request ChatRequest) (error, *OpenAIErr
 	}
 	defer resp.Body.Close()
 	var response TextResponse
-	err = json.NewDecoder(resp.Body).Decode(&response)
+	// 解析resp.Body
+	scanner := bufio.NewScanner(resp.Body)
+	jsonRes := ""
+	streamConcatContent := ""
+	for scanner.Scan() {
+		var streamResponse ChatCompletionsStreamResponse
+		line := scanner.Text()
+		// 切掉前面的data:
+		line = strings.TrimPrefix(line, "data: ")
+		// [DONE]跳过
+		if line == "[DONE]" {
+			continue
+		}
+		jsonRes += line
+		// 解析 JSON 对象
+		err = json.Unmarshal([]byte(line), &streamResponse)
+		if err == nil {
+			streamConcatContent += streamResponse.Choices[0].Delta.Content
+		}
+	}
+	if streamConcatContent == "在" {
+		return nil, nil
+	}
+	err = json.Unmarshal([]byte(jsonRes), &response)
 	if err != nil {
 		return err, nil
 	}
