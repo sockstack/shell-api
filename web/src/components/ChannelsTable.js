@@ -334,6 +334,30 @@ const ChannelsTable = () => {
             >
               余额
             </Table.HeaderCell>
+            <Table.HeaderCell
+              style={{ cursor: 'pointer' }}
+              onClick={() => {
+                sortChannel('sort');
+              }}
+            >
+              强制顺序
+            </Table.HeaderCell>
+            <Table.HeaderCell
+              style={{ cursor: 'pointer' }}
+              onClick={() => {
+                sortChannel('overFrequencyAutoDisable');
+              }}
+            >
+              超频熔断
+            </Table.HeaderCell>
+            <Table.HeaderCell
+              style={{ cursor: 'pointer' }}
+              onClick={() => {
+                sortChannel('retryInterval');
+              }}
+            >
+              自动复活间隔(秒)
+            </Table.HeaderCell>
             <Table.HeaderCell>操作</Table.HeaderCell>
           </Table.Row>
         </Table.Header>
@@ -372,6 +396,9 @@ const ChannelsTable = () => {
                       basic
                     />
                   </Table.Cell>
+                  <Table.Cell><span style={{display:'block',textAlign : 'center'}}>{channel.sort}</span></Table.Cell>
+                  <Table.Cell><span style={{display:'block',textAlign : 'center'}}>{channel.overFrequencyAutoDisable === true ? '是': '否'}</span></Table.Cell>
+                  <Table.Cell><span style={{display:'block',textAlign : 'center'}}>{channel.retryInterval}</span></Table.Cell>
                   <Table.Cell>
                     <div>
                       <Button
@@ -440,7 +467,7 @@ const ChannelsTable = () => {
 
         <Table.Footer>
           <Table.Row>
-            <Table.HeaderCell colSpan='8'>
+            <Table.HeaderCell colSpan='11'>
               <Button size='small' as={Link} to='/channel/add' loading={loading}>
                 添加新的渠道
               </Button>
