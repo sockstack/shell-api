@@ -18,7 +18,8 @@ func GetAllLogs(c *gin.Context) {
 	username := c.Query("username")
 	tokenName := c.Query("token_name")
 	modelName := c.Query("model_name")
-	logs, err := model.GetAllLogs(logType, startTimestamp, endTimestamp, modelName, username, tokenName, p*common.ItemsPerPage, common.ItemsPerPage)
+	channelName := c.Query("channel_name")
+	logs, err := model.GetAllLogs(logType, startTimestamp, endTimestamp, modelName, username, tokenName, channelName, p*common.ItemsPerPage, common.ItemsPerPage)
 	if err != nil {
 		c.JSON(200, gin.H{
 			"success": false,

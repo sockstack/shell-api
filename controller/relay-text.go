@@ -328,6 +328,7 @@ func relayTextHelper(c *gin.Context, relayMode int) *OpenAIErrorWithStatusCode {
 	var textResponse TextResponse
 	tokenName := c.GetString("token_name")
 	channelId := c.GetInt("channel_id")
+	channelName := c.GetString("channel_name")
 
 	defer func() {
 		// c.Writer.Flush()
@@ -360,7 +361,7 @@ func relayTextHelper(c *gin.Context, relayMode int) *OpenAIErrorWithStatusCode {
 				}
 				if quota != 0 {
 					logContent := fmt.Sprintf("模型倍率 %.2f，分组倍率 %.2f", modelRatio, groupRatio)
-					model.RecordConsumeLog(userId, promptTokens, completionTokens, textRequest.Model, tokenName, quota, logContent)
+					model.RecordConsumeLog(userId, promptTokens, completionTokens, textRequest.Model, tokenName, channelName, quota, logContent)
 					model.UpdateUserUsedQuotaAndRequestCount(userId, quota)
 
 					model.UpdateChannelUsedQuota(channelId, quota)

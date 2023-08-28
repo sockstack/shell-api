@@ -13,6 +13,7 @@ type Log struct {
 	Content          string `json:"content"`
 	Username         string `json:"username" gorm:"index;default:''"`
 	TokenName        string `json:"token_name" gorm:"index;default:''"`
+	ChannelName      string `json:"channel_name" gorm:"index;default:''"`
 	ModelName        string `json:"model_name" gorm:"index;default:''"`
 	Quota            int    `json:"quota" gorm:"default:0"`
 	PromptTokens     int    `json:"prompt_tokens" gorm:"default:0"`
@@ -44,7 +45,7 @@ func RecordLog(userId int, logType int, content string) {
 	}
 }
 
-func RecordConsumeLog(userId int, promptTokens int, completionTokens int, modelName string, tokenName string, quota int, content string) {
+func RecordConsumeLog(userId int, promptTokens int, completionTokens int, modelName string, tokenName string, channelName string, quota int, content string) {
 	if !common.LogConsumeEnabled {
 		return
 	}
@@ -57,6 +58,7 @@ func RecordConsumeLog(userId int, promptTokens int, completionTokens int, modelN
 		PromptTokens:     promptTokens,
 		CompletionTokens: completionTokens,
 		TokenName:        tokenName,
+		ChannelName:      channelName,
 		ModelName:        modelName,
 		Quota:            quota,
 	}
@@ -66,7 +68,7 @@ func RecordConsumeLog(userId int, promptTokens int, completionTokens int, modelN
 	}
 }
 
-func GetAllLogs(logType int, startTimestamp int64, endTimestamp int64, modelName string, username string, tokenName string, startIdx int, num int) (logs []*Log, err error) {
+func GetAllLogs(logType int, startTimestamp int64, endTimestamp int64, modelName string, username string, tokenName string, channelName string, startIdx int, num int) (logs []*Log, err error) {
 	var tx *gorm.DB
 	if logType == LogTypeUnknown {
 		tx = DB
@@ -87,6 +89,9 @@ func GetAllLogs(logType int, startTimestamp int64, endTimestamp int64, modelName
 	}
 	if endTimestamp != 0 {
 		tx = tx.Where("created_at <= ?", endTimestamp)
+	}
+	if channelName != "" {
+		tx = tx.Where("channel_name = ?", channelName)
 	}
 	err = tx.Order("id desc").Limit(num).Offset(startIdx).Find(&logs).Error
 	return logs, err
