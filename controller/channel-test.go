@@ -87,14 +87,14 @@ func testChannel(channel *model.Channel, request ChatRequest) (error, *OpenAIErr
 			streamConcatContent += streamResponse.Choices[0].Delta.Content
 		}
 	}
-	if streamConcatContent == "在" {
+	if streamConcatContent == "1" {
 		return nil, nil
 	}
 	err = json.Unmarshal([]byte(jsonRes), &response)
 	if err != nil {
 		return err, nil
 	}
-	if response.Usage.CompletionTokens == 0 && (response.Choices == nil || len(response.Choices) == 0 || response.Choices[0].Content != "在") {
+	if response.Usage.CompletionTokens == 0 && (response.Choices == nil || len(response.Choices) == 0 || response.Choices[0].Content != "1") {
 		return errors.New(fmt.Sprintf("type %s, code %v, message %s", response.Error.Type, response.Error.Code, response.Error.Message)), &response.Error
 	}
 	return nil, nil
@@ -107,7 +107,7 @@ func buildTestRequest() *ChatRequest {
 	}
 	testMessage := Message{
 		Role:    "user",
-		Content: "你在吗？如果你在请回复“在”，不要回复其他的任何字也不要加标点",
+		Content: "say 1\nmax_tokens=1",
 	}
 	testRequest.Messages = append(testRequest.Messages, testMessage)
 	return testRequest
