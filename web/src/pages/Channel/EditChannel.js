@@ -26,6 +26,8 @@ const EditChannel = () => {
     key: '',
     base_url: '',
     order: 0,
+    sort: 0,
+    retryInterval:300,
     // The frequency is automatically disabled
     overFrequencyAutoDisable:false,
     other: '',
@@ -45,7 +47,7 @@ const EditChannel = () => {
 
   const handleInputChange = (e, { name, value }) => {
     setInputs((inputs) => ({ ...inputs, [name]: value }));
-    if (name === 'sort'){
+    if (name === 'sort' || name === 'retryInterval'){
         setInputs((inputs) => ({ ...inputs, [name]: parseInt(value) }));
     }
     if (name === 'overFrequencyAutoDisable'){
@@ -437,6 +439,17 @@ const EditChannel = () => {
                 label='超过频率报错429是否自动禁用通道(禁用后每隔5分钟轮训一次如果复活则自动启用通道)'
                 name='overFrequencyAutoDisable'
                 onChange={handleInputChange}
+            />
+          </Form.Field>
+          <Form.Field>
+            <Form.Input
+                label='查询复活重试周期,默认值300秒,自动禁用通道后的查询复活重试周期(单位秒)'
+                name='retryInterval'
+                placeholder={'此项可选，默认值300秒,自动禁用通道后的查询复活重试周期(单位秒)'}
+                onChange={handleInputChange}
+                value={inputs.retryInterval}
+                autoComplete='new-password'
+                type='number'
             />
           </Form.Field>
 
