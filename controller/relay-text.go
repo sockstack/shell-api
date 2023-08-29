@@ -7,6 +7,7 @@ import (
 	"fmt"
 	"github.com/gin-gonic/gin"
 	"io"
+	"math/rand"
 	"net/http"
 	"one-api/common"
 	"one-api/model"
@@ -80,14 +81,31 @@ func relayTextHelper(c *gin.Context, relayMode int) *OpenAIErrorWithStatusCode {
 	modelMapping := c.GetString("model_mapping")
 	isModelMapped := false
 	if modelMapping != "" && modelMapping != "{}" {
-		modelMap := make(map[string]string)
-		err := json.Unmarshal([]byte(modelMapping), &modelMap)
-		if err != nil {
-			return errorWrapper(err, "unmarshal_model_mapping_failed", http.StatusInternalServerError)
-		}
-		if modelMap[textRequest.Model] != "" {
-			textRequest.Model = modelMap[textRequest.Model]
-			isModelMapped = true
+		// 判断如果是数组类型,则随机取用数组中的一个索引
+		if strings.HasPrefix(modelMapping, "[") {
+			var modelMaps []map[string]string
+			err := json.Unmarshal([]byte(modelMapping), &modelMaps)
+			if err != nil {
+				return errorWrapper(err, "unmarshal_model_mapping_failed", http.StatusInternalServerError)
+			}
+			if len(modelMaps) > 0 {
+				idx := rand.Intn(len(modelMaps))
+				modelMap := modelMaps[idx]
+				if modelMap[textRequest.Model] != "" {
+					textRequest.Model = modelMap[textRequest.Model]
+					isModelMapped = true
+				}
+			}
+		} else {
+			modelMap := make(map[string]string)
+			err := json.Unmarshal([]byte(modelMapping), &modelMap)
+			if err != nil {
+				return errorWrapper(err, "unmarshal_model_mapping_failed", http.StatusInternalServerError)
+			}
+			if modelMap[textRequest.Model] != "" {
+				textRequest.Model = modelMap[textRequest.Model]
+				isModelMapped = true
+			}
 		}
 	}
 	apiType := APITypeOpenAI

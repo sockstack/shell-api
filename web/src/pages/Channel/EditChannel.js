@@ -10,6 +10,8 @@ const MODEL_MAPPING_EXAMPLE = {
   'gpt-4-32k-0314': 'gpt-4-32k'
 };
 
+const OVERCLOCKING_MODEL_MAPPING_EXAMPLE = [{"gpt-3.5-turbo":"gpt-3.5-turbo-0301","gpt-3.5-turbo-0613":"gpt-3.5-turbo-0301"},{"gpt-3.5-turbo":"gpt-3.5-turbo-0613","gpt-3.5-turbo-0301":"gpt-3.5-turbo-0613"},{"gpt-3.5-turbo-0301":"gpt-3.5-turbo","gpt-3.5-turbo-0613":"gpt-3.5-turbo"}]
+
 const EditChannel = () => {
   const params = useParams();
   const navigate = useNavigate();
@@ -365,8 +367,8 @@ const EditChannel = () => {
           </div>
           <Form.Field>
             <Form.TextArea
-              label='模型重定向'
-              placeholder={`此项可选，用于修改请求体中的模型名称，为一个 JSON 字符串，键为请求中模型名称，值为要替换的模型名称，例如：\n${JSON.stringify(MODEL_MAPPING_EXAMPLE, null, 2)}`}
+              label='模型重定向(可用于超频,详细例子清空文本框查看)'
+              placeholder={`此项可选，用于修改请求体中的模型名称，为一个 JSON 字符串，键为请求中模型名称，值为要替换的模型名称，例如：\n${JSON.stringify(MODEL_MAPPING_EXAMPLE, null, 2)} \n 如果是数组类型可以随机轮训(可用于超频:例子:\n${JSON.stringify(OVERCLOCKING_MODEL_MAPPING_EXAMPLE, null, 2)} \n)`}
               name='model_mapping'
               onChange={handleInputChange}
               value={inputs.model_mapping}
@@ -424,7 +426,7 @@ const EditChannel = () => {
           }
           <Form.Field>
             <Form.Input
-                label='强制指定使用顺序'
+                label='强制顺序(强制指定使用顺序,默认值0,大的先使用,用完才会用小的)'
                 name='sort'
                 placeholder={'此项可选，默认值0,大的先使用,用完才会用小的'}
                 onChange={handleInputChange}
@@ -436,14 +438,14 @@ const EditChannel = () => {
           <Form.Field>
             <Form.Checkbox
                 checked={overFrequencyAutoDisable}
-                label='超过频率报错429是否自动禁用通道(禁用后每隔5分钟轮训一次如果复活则自动启用通道)'
+                label='超频熔断(超过频率报错429是否自动禁用通道,禁用后每隔一定时间轮训一次如果复活则自动启用通道)'
                 name='overFrequencyAutoDisable'
                 onChange={handleInputChange}
             />
           </Form.Field>
           <Form.Field>
             <Form.Input
-                label='查询复活重试周期,默认值300秒,自动禁用通道后的查询复活重试周期(单位秒)'
+                label='复活周期(超频429后查询复活重试周期,默认值300秒,自动禁用通道后的查询复活重试周期,单位秒)'
                 name='retryInterval'
                 placeholder={'此项可选，默认值300秒,自动禁用通道后的查询复活重试周期(单位秒)'}
                 onChange={handleInputChange}
