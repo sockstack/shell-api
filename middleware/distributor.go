@@ -113,10 +113,16 @@ func Distribute() func(c *gin.Context) {
 		c.Set("channel_id", channel.Id)
 		c.Set("channel_name", channel.Name)
 		c.Set("model_mapping", channel.ModelMapping)
-		c.Set("retryInterval", *channel.RetryInterval)
-		c.Set("overFrequencyAutoDisable", *channel.OverFrequencyAutoDisable)
+		if channel.RetryInterval != nil {
+			c.Set("retryInterval", *channel.RetryInterval)
+		}
+		if channel.OverFrequencyAutoDisable != nil {
+			c.Set("overFrequencyAutoDisable", *channel.OverFrequencyAutoDisable)
+		}
 		c.Request.Header.Set("Authorization", fmt.Sprintf("Bearer %s", channel.Key))
-		c.Request.Header.Set("OpenAI-Organization", *channel.OpenAIOrganization)
+		if channel.OpenAIOrganization != nil {
+			c.Request.Header.Set("OpenAI-Organization", *channel.OpenAIOrganization)
+		}
 		c.Set("base_url", channel.BaseURL)
 		if channel.Type == common.ChannelTypeAzure || channel.Type == common.ChannelTypeXunfei {
 			c.Set("api_version", channel.Other)
