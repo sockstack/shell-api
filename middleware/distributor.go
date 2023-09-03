@@ -124,8 +124,13 @@ func Distribute() func(c *gin.Context) {
 			c.Request.Header.Set("OpenAI-Organization", *channel.OpenAIOrganization)
 		}
 		c.Set("base_url", channel.BaseURL)
-		if channel.Type == common.ChannelTypeAzure || channel.Type == common.ChannelTypeXunfei {
+		switch channel.Type {
+		case common.ChannelTypeAzure:
 			c.Set("api_version", channel.Other)
+		case common.ChannelTypeXunfei:
+			c.Set("api_version", channel.Other)
+		case common.ChannelTypeAIProxyLibrary:
+			c.Set("library_id", channel.Other)
 		}
 		c.Next()
 	}
