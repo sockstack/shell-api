@@ -95,7 +95,7 @@ _✨ 通过标准的 OpenAI API 格式访问所有的大模型，开箱即用 �
 <img width="1029" alt="image" src="https://github.com/akl7777777/one-api/assets/84266551/093cfd78-1ae8-4ece-8cfa-3678c9d27bea">
 
 
-## 当前的公开项目只有少量新功能,V200拉你进私有小圈子,享受以上全部功能,后面还会更新更多功能
+## 当前的公开项目只有少量新功能,V598拉你进私有小圈子,享受以上全部功能,后面还会更新更多功能
 
 <img width="312" alt="image" src="https://github.com/akl7777777/one-api/assets/84266551/b57d2555-e7f7-43cd-9b88-bdf87853a057">
 
