@@ -88,7 +88,9 @@ _✨ 通过标准的 OpenAI API 格式访问所有的大模型，开箱即用 �
 <img width="1426" alt="image" src="https://github.com/akl7777777/one-api/assets/84266551/50297ee5-9cfb-475f-b9bd-2db6fce5d96a">
 <img width="1426" alt="image" src="https://github.com/akl7777777/one-api/assets/84266551/39c49e30-4293-4616-9920-3cc9b56a9f3f">
 <img width="1426" alt="image" src="https://github.com/akl7777777/one-api/assets/84266551/20c9da4a-cca1-4127-bdf2-a5327595d953">
-<img width="1426" alt="image" src="https://github.com/akl7777777/one-api/assets/84266551/c1ef7c50-358f-4ab9-a138-3b7d1ddbb0fc">
+<img width="1918" alt="image" src="https://github.com/akl7777777/one-api/assets/84266551/80910a42-9bd6-4d04-aca6-3ed6cbaa81d8">
+
+
 <img width="876" alt="image" src="https://github.com/akl7777777/one-api/assets/84266551/222895c7-bd6a-492b-bdce-90d722e259cb">
 <img width="993" alt="image" src="https://github.com/akl7777777/one-api/assets/84266551/4b92ac0a-aade-4bf2-b3ec-7d4d4f8e2758">
 
