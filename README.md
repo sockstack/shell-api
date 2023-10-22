@@ -60,6 +60,7 @@ _✨ 通过标准的 OpenAI API 格式访问所有的大模型，开箱即用 �
 > 使用 Docker 拉取的最新镜像可能是 `alpha` 版本，如果追求稳定性请手动指定版本。
 
 ## 增强功能
+0. **全新的UI界面震撼来袭**
 1. **新增强制指定渠道使用顺序(例如通道A配置顺序为3,通道B配置顺序为3,通道C配置顺序为2,则所有请求随机分布到通道A和B,没有请求打到C,只有A和B都死掉才会打到C);**
 2. 新增429超频自动禁用;
 3. **超频禁用后每隔指定时间自动测试通道,测试通过则自动启用(重试10次失败则停止重试);**
@@ -75,6 +76,17 @@ _✨ 通过标准的 OpenAI API 格式访问所有的大模型，开箱即用 �
 13. 修复原始版本余额不足的用户去请求时候会自动禁用通道的bug;
 
 ## 增强功能截图展示
+
+<img width="1426" alt="image" src="https://github.com/akl7777777/one-api/assets/84266551/50297ee5-9cfb-475f-b9bd-2db6fce5d96a">
+<img width="1426" alt="image" src="https://github.com/akl7777777/one-api/assets/84266551/39c49e30-4293-4616-9920-3cc9b56a9f3f">
+<img width="1426" alt="image" src="https://github.com/akl7777777/one-api/assets/84266551/20c9da4a-cca1-4127-bdf2-a5327595d953">
+<img width="1426" alt="image" src="https://github.com/akl7777777/one-api/assets/84266551/c1ef7c50-358f-4ab9-a138-3b7d1ddbb0fc">
+<img width="876" alt="image" src="https://github.com/akl7777777/one-api/assets/84266551/222895c7-bd6a-492b-bdce-90d722e259cb">
+<img width="993" alt="image" src="https://github.com/akl7777777/one-api/assets/84266551/4b92ac0a-aade-4bf2-b3ec-7d4d4f8e2758">
+
+
+
+
 
 <img width="1207" alt="image" src="https://github.com/akl7777777/one-api/assets/84266551/b6f53b28-7d68-4a50-99f8-1ed5b450861c">
 <img width="1359" alt="image" src="https://github.com/akl7777777/one-api/assets/84266551/a5e6a224-64f3-4358-87f9-de656f082a38">
