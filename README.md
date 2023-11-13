@@ -1,183 +1,137 @@
-<p align="right">
-   <strong>中文</strong> | <a href="./README.en.md">English</a> | <a href="./README.ja.md">日本語</a>
-</p>
-
-
-<p align="center">
-  <a href="https://github.com/songquanpeng/one-api"><img src="https://raw.githubusercontent.com/songquanpeng/one-api/main/web/public/logo.png" width="150" height="150" alt="one-api logo"></a>
-</p>
-
 <div align="center">
 
-# One API
+![](https://one-api.oss-rg-china-mainland.aliyuncs.com/Logo-new-150.png)
 
-_✨ 通过标准的 OpenAI API 格式访问所有的大模型，开箱即用 ✨_
+</div>
+<div align="center">
+
+# Shell API
+
+✨ 基于 One API 二次开发，提供全新UI与更多高级选项，支持Docker部署 ✨
 
 </div>
 
-<p align="center">
-  <a href="https://raw.githubusercontent.com/songquanpeng/one-api/main/LICENSE">
-    <img src="https://img.shields.io/github/license/songquanpeng/one-api?color=brightgreen" alt="license">
-  </a>
-  <a href="https://github.com/songquanpeng/one-api/releases/latest">
-    <img src="https://img.shields.io/github/v/release/songquanpeng/one-api?color=brightgreen&include_prereleases" alt="release">
-  </a>
-  <a href="https://hub.docker.com/repository/docker/justsong/one-api">
-    <img src="https://img.shields.io/docker/pulls/justsong/one-api?color=brightgreen" alt="docker pull">
-  </a>
-  <a href="https://github.com/songquanpeng/one-api/releases/latest">
-    <img src="https://img.shields.io/github/downloads/songquanpeng/one-api/total?color=brightgreen&include_prereleases" alt="release">
-  </a>
-  <a href="https://goreportcard.com/report/github.com/songquanpeng/one-api">
-    <img src="https://goreportcard.com/badge/github.com/songquanpeng/one-api" alt="GoReportCard">
-  </a>
-</p>
 
-<p align="center">
-  <a href="https://github.com/songquanpeng/one-api#部署">部署教程</a>
-  ·
-  <a href="https://github.com/songquanpeng/one-api#使用方法">使用方法</a>
-  ·
-  <a href="https://github.com/songquanpeng/one-api/issues">意见反馈</a>
-  ·
-  <a href="https://github.com/songquanpeng/one-api#截图展示">截图展示</a>
-  ·
-  <a href="https://openai.justsong.cn/">在线演示</a>
-  ·
-  <a href="https://github.com/songquanpeng/one-api#常见问题">常见问题</a>
-  ·
-  <a href="https://github.com/songquanpeng/one-api#相关项目">相关项目</a>
-  ·
-  <a href="https://iamazing.cn/page/reward">赞赏支持</a>
-</p>
+## 新版特性
 
-> **Note**
-> 本项目为开源项目，使用者必须在遵循 OpenAI 的[使用条款](https://openai.com/policies/terms-of-use)以及**法律法规**的情况下使用，不得用于非法用途。
-> 
-> 根据[《生成式人工智能服务管理暂行办法》](http://www.cac.gov.cn/2023-07/13/c_1690898327029107.htm)的要求，请勿对中国地区公众提供一切未经备案的生成式人工智能服务。
+0. 与开源版完全兼容
+    + [x] 保留旧版所有配置，直接迁移，开箱即用
+1. 全新UI震撼来袭
+    + [x] 支持切换旧版
+    + [x] 提示消息内容基本汉化
+    + [x] 增加分页器，每页展示内容更多
+    + [x] 增加表头筛选，快速筛选对应内容
+    + [x] 支持自选导航位置（顶栏/侧栏）
+    + [x] 增强日志展示，方便定位问题
+    + [x] 增加一键填写美金额度令牌，无需手动输入
+    + [x] 增加一键复制用户信息、修改用户额度功能
+    + [ ] 支持自定义配置悬浮按钮、友情链接
+    + [ ] 适配手机版页面
+    + [ ] 全新仪表盘，所有数据一览无遗
+    + [ ] 优化日志展示，支持日志导出
+    + [ ] 自选主题市场
+    + [ ] 支持切换深色模式
+2. 更多高级功能
+    + [x] 强制指定渠道使用顺序
+        + 如通道A、B配置顺序为3，通道C配置顺序为2，则只有A和B都被禁用才会使用C
+    + [x] 支持429超频报错自动禁用
+        + 超过频率限制的请求会自动禁用，避免重复返回超频报错
+    + [x] 支持渠道超频自动复活
+        + 超频禁用后每隔指定配置的时间自动测试通道,测试通过则自动启用
+    + [x] 新增一键超频功能
+        + 配置渠道时，一键点击即可开启超频
+    + [x] 优化测速方案,支持**流式测速**
+    + [x] 支持自定义渠道链接
+    + [x] 日志展示渠道名称，且可以根据渠道名称搜索过滤
+    + [x] 优化测速方式，相较原版节省更多token
+    + [x] OpenAI支持指定组织消耗
+    + [x] 编辑的时候可以控制显示/隐藏秘钥
+    + [x] 用户请求、响应的内容存表并支持前端查询
+    + [x] **修复原始版本余额不足的用户去请求时候会自动禁用通道的bug**
+    + [x] 增加自定义测速以及JSON一键填入功能，打破原版默认只有3.5测速的局限
+    + [x] 查询余额支持跨域请求
+    + [x] 增加高级测速功能
+    + [x] 防止openai抽风超额扣费出现的的的的的的的的的的的
+    + [x] 增加对话一键填充令牌功能
+    + [x] 增加SMTP 配置发送测试邮件
+    + [ ] 新增渠道组功能，更符合实际使用场景
 
-> **Warning**
-> 使用 Docker 拉取的最新镜像可能是 `alpha` 版本，如果追求稳定性请手动指定版本。
-
-## 增强功能
-0. **全新的UI界面震撼来袭**
-1. **新增强制指定渠道使用顺序(例如通道A配置顺序为3,通道B配置顺序为3,通道C配置顺序为2,则所有请求随机分布到通道A和B,没有请求打到C,只有A和B都死掉才会打到C);**
-2. 新增429超频自动禁用;
-3. **超频禁用后每隔指定时间自动测试通道,测试通过则自动启用(重试10次失败则停止重试);**
-4. **新增一键超频功能** (支持数组的方式配置通道映射,例如[{"gpt-3.5-turbo":"gpt-3.5-turbo-0301","gpt-3.5-turbo-0613":"gpt-3.5-turbo-0301"},{"gpt-3.5-turbo":"gpt-3.5-turbo-0613","gpt-3.5-turbo-0301":"gpt-3.5-turbo-0613"},{"gpt-3.5-turbo-0301":"gpt-3.5-turbo","gpt-3.5-turbo-0613":"gpt-3.5-turbo"}])
-5. 优化测速方案,支持流式和非流式的接口,原版只支持非流式接口测速;
-6. 日志中展示渠道名称,并且可以根据渠道名称搜索过滤;
-7. 优化测速方式,改为更节省Token的方式;
-8. **OpenAI同一个key可以指定组织消耗,不填就走默认组织;**
-9. 增强日志内容,原版自动禁用通道后经常没有日志,导致问题很难定位;
-10. **所有页面增加每页显示多少条的功能,再也不用10条10条的翻页累死了;**
-11. 编辑的时候可以控制显示隐藏秘钥;
-12. **用户请求,响应的聊天记录存表以及查询;**
-13. 修复原始版本余额不足的用户去请求时候会自动禁用通道的bug;
-14. 增加一键填写5,10,50,100,500美金额度令牌,不用手输入麻烦;
-15. 增加自定义测速以及JSON一键填入功能,原版默认只有3.5测速
-16. 查询余额支持跨域请求
-17. 增加高级测速功能
-18. 防止openai抽风超额扣费出现的的的的的的的的的的的
-19. **新增分组邀请奖励倍率设置,被邀请人充值后,邀请人可以持续返利吸血,增加邀请日志以及邀请奖励余额扩充功能**
-20. **对接易支付,支持在线直接充值,并且充值后,邀请人可以获得返利**
-    
-
-## 增强功能截图展示
-
-<img width="1426" alt="image" src="https://github.com/akl7777777/one-api/assets/84266551/50297ee5-9cfb-475f-b9bd-2db6fce5d96a">
-<img width="1426" alt="image" src="https://github.com/akl7777777/one-api/assets/84266551/39c49e30-4293-4616-9920-3cc9b56a9f3f">
-<img width="1426" alt="image" src="https://github.com/akl7777777/one-api/assets/84266551/20c9da4a-cca1-4127-bdf2-a5327595d953">
-<img width="1918" alt="image" src="https://github.com/akl7777777/one-api/assets/84266551/80910a42-9bd6-4d04-aca6-3ed6cbaa81d8">
-
-
-<img width="876" alt="image" src="https://github.com/akl7777777/one-api/assets/84266551/222895c7-bd6a-492b-bdce-90d722e259cb">
-<img width="993" alt="image" src="https://github.com/akl7777777/one-api/assets/84266551/4b92ac0a-aade-4bf2-b3ec-7d4d4f8e2758">
-
-
-
-
-
-<img width="1207" alt="image" src="https://github.com/akl7777777/one-api/assets/84266551/b6f53b28-7d68-4a50-99f8-1ed5b450861c">
-<img width="1359" alt="image" src="https://github.com/akl7777777/one-api/assets/84266551/a5e6a224-64f3-4358-87f9-de656f082a38">
-<img width="1400" alt="image" src="https://github.com/akl7777777/one-api/assets/84266551/3f00e7fe-99db-4911-8fa3-5bd019d82693">
-<img width="1247" alt="image" src="https://github.com/akl7777777/one-api/assets/84266551/53e9738b-3aa2-49b5-a102-7c61da3a2462">
-<img width="1029" alt="image" src="https://github.com/akl7777777/one-api/assets/84266551/093cfd78-1ae8-4ece-8cfa-3678c9d27bea">
-
-
-## 当前的公开项目只有少量新功能,V598拉你进私有小圈子,享受以上全部功能,后面还会更新更多功能
-
-<img width="312" alt="image" src="https://github.com/akl7777777/one-api/assets/84266551/b57d2555-e7f7-43cd-9b88-bdf87853a057">
-
-
-
-## 功能
-1. 支持多种大模型：
-   + [x] [OpenAI ChatGPT 系列模型](https://platform.openai.com/docs/guides/gpt/chat-completions-api)（支持 [Azure OpenAI API](https://learn.microsoft.com/en-us/azure/ai-services/openai/reference)）
-   + [x] [Anthropic Claude 系列模型](https://anthropic.com)
-   + [x] [Google PaLM2 系列模型](https://developers.generativeai.google)
-   + [x] [百度文心一言系列模型](https://cloud.baidu.com/doc/WENXINWORKSHOP/index.html)
-   + [x] [阿里通义千问系列模型](https://help.aliyun.com/document_detail/2400395.html)
-   + [x] [讯飞星火认知大模型](https://www.xfyun.cn/doc/spark/Web.html)
-   + [x] [智谱 ChatGLM 系列模型](https://bigmodel.cn)
-   + [x] [360 智脑](https://ai.360.cn)
-2. 支持配置镜像以及众多第三方代理服务：
-   + [x] [OpenAI-SB](https://openai-sb.com)
-   + [x] [API2D](https://api2d.com/r/197971)
-   + [x] [OhMyGPT](https://aigptx.top?aff=uFpUl2Kf)
-   + [x] [AI Proxy](https://aiproxy.io/?i=OneAPI) （邀请码：`OneAPI`）
-   + [x] [CloseAI](https://console.closeai-asia.com/r/2412)
-   + [x] 自定义渠道：例如各种未收录的第三方代理服务
-3. 支持通过**负载均衡**的方式访问多个渠道。
-4. 支持 **stream 模式**，可以通过流式传输实现打字机效果。
-5. 支持**多机部署**，[详见此处](#多机部署)。
-6. 支持**令牌管理**，设置令牌的过期时间和额度。
-7. 支持**兑换码管理**，支持批量生成和导出兑换码，可使用兑换码为账户进行充值。
-8. 支持**通道管理**，批量创建通道。
-9. 支持**用户分组**以及**渠道分组**，支持为不同分组设置不同的倍率。
-10. 支持渠道**设置模型列表**。
-11. 支持**查看额度明细**。
-12. 支持**用户邀请奖励**。
-13. 支持以美元为单位显示额度。
-14. 支持发布公告，设置充值链接，设置新用户初始额度。
-15. 支持模型映射，重定向用户的请求模型。
-16. 支持失败自动重试。
-17. 支持绘图接口。
-18. 支持丰富的**自定义**设置，
-    1. 支持自定义系统名称，logo 以及页脚。
-    2. 支持自定义首页和关于页面，可以选择使用 HTML & Markdown 代码进行自定义，或者使用一个单独的网页通过 iframe 嵌入。
-19. 支持通过系统访问令牌访问管理 API。
-20. 支持 Cloudflare Turnstile 用户校验。
-21. 支持用户管理，支持**多种用户登录注册方式**：
-    + 邮箱登录注册（支持注册邮箱白名单）以及通过邮箱进行密码重置。
-    + [GitHub 开放授权](https://github.com/settings/applications/new)。
-    + 微信公众号授权（需要额外部署 [WeChat Server](https://github.com/songquanpeng/wechat-server)）。
-
+## 截图展示
+![img.png](img.png)
+![img_1.png](img_1.png)
+![img_2.png](img_2.png)
+![img_3.png](img_3.png)
+![img_7.png](img_7.png)
+![img_4.png](img_4.png)
+![img_5.png](img_5.png)
+![img_6.png](img_6.png)
+![img_8.png](img_8.png)
+![img_9.png](img_9.png)
+![img_10.png](img_10.png)
+![img_11.png](img_11.png)
+![img_12.png](img_12.png)
+![img_31.png](img_31.png)
+![img_13.png](img_13.png)
+![img_30.png](img_30.png)
+![img_14.png](img_14.png)
+![img_15.png](img_15.png)
+![img_16.png](img_16.png)
+![img_17.png](img_17.png)
+![img_18.png](img_18.png)
+![img_19.png](img_19.png)
+![img_20.png](img_20.png)
+![img_21.png](img_21.png)
+![img_22.png](img_22.png)
+![img_23.png](img_23.png)
+![img_24.png](img_24.png)
+![img_25.png](img_25.png)
+![img_26.png](img_26.png)
+![img_27.png](img_27.png)
+![img_28.png](img_28.png)
+![img_29.png](img_29.png)
 ## 部署
-### 基于 Docker 进行部署
-部署命令：`docker run --name one-api -d --restart always -p 3000:3000 -e TZ=Asia/Shanghai -v /home/ubuntu/data/one-api:/data justsong/one-api`
-
-其中，`-p 3000:3000` 中的第一个 `3000` 是宿主机的端口，可以根据需要进行修改。
-
-数据将会保存在宿主机的 `/home/ubuntu/data/one-api` 目录，请确保该目录存在且具有写入权限，或者更改为合适的目录。
-
-如果启动失败，请添加 `--privileged=true`，具体参考 #482。
-
-如果上面的镜像无法拉取，可以尝试使用 GitHub 的 Docker 镜像，将上面的 `justsong/one-api` 替换为 `ghcr.io/songquanpeng/one-api` 即可。
-
-如果你的并发量较大，**务必**设置 `SQL_DSN`，详见下面[环境变量](#环境变量)一节。
-
-更新命令：`docker run --rm -v /var/run/docker.sock:/var/run/docker.sock containrrr/watchtower -cR`
-
-Nginx 的参考配置：
+### 一、首次安装
+#### 1.连接云服务器
+```bash
+ssh username@yourserver
 ```
+#### 2.获取最新版的docker-compose配置文件
+```bash
+#新建目录
+mkdir shellapi
+#拉取配置文件
+wget -P shellapi/ https://one-api.oss-rg-china-mainland.aliyuncs.com/docker-compose.yml
+```
+#### 3.修改 docker-compose.yml 文件中相关设置
+```bash
+#进入目录
+cd shellapi 
+#使用vi编辑文件
+vi docker-compose.yml
+```
+```yaml
+#如果不是最新版本，请手动修改 tag：
+image: akl7777777/one-api-private:v0.x.y
+# 使用MySQL作为数据库，修改用户名和密码；不使用MySQL作为数据库，注释这两行：
+- SQL_DSN=root:123456@tcp(host.docker.internal:3306)/one-api
+- DW_DB_DSN=root:123456@tcp(host.docker.internal:3306)/one-api
+```
+#### 4.启动容器
+```bash
+#登录docker
+docker login
+#启动容器
+docker-compose up -d
+```
+#### 5.配置反向代理
+📌 默认端口为 3000 端口，如果开启了防火墙，请注意开放端口
+```nginx
 server{
-   server_name openai.justsong.cn;  # 请根据实际情况修改你的域名
-   
+   server_name api.shellapi.plus;  # 根据实际情况修改域名
    location / {
           client_max_body_size  64m;
           proxy_http_version 1.1;
-          proxy_pass http://localhost:3000;  # 请根据实际情况修改你的端口
+          proxy_pass http://localhost:3000;  # 根据实际情况修改端口
           proxy_set_header Host $host;
           proxy_set_header X-Forwarded-For $remote_addr;
           proxy_cache_bypass $http_upgrade;
@@ -186,226 +140,12 @@ server{
    }
 }
 ```
-
-之后使用 Let's Encrypt 的 certbot 配置 HTTPS：
+### 二、更新
 ```bash
-# Ubuntu 安装 certbot：
-sudo snap install --classic certbot
-sudo ln -s /snap/bin/certbot /usr/bin/certbot
-# 生成证书 & 修改 Nginx 配置
-sudo certbot --nginx
-# 根据指示进行操作
-# 重启 Nginx
-sudo service nginx restart
+#进入目录
+cd shellapi
+#使用vi编辑文件，修改 tag 为最新版本
+vi docker-compose.yml
+#重新创建并启动容器
+docker-compose up -d
 ```
-
-初始账号用户名为 `root`，密码为 `123456`。
-
-### 手动部署
-1. 从 [GitHub Releases](https://github.com/songquanpeng/one-api/releases/latest) 下载可执行文件或者从源码编译：
-   ```shell
-   git clone https://github.com/songquanpeng/one-api.git
-   
-   # 构建前端
-   cd one-api/web
-   npm install
-   npm run build
-   
-   # 构建后端
-   cd ..
-   go mod download
-   go build -ldflags "-s -w" -o one-api
-   ````
-2. 运行：
-   ```shell
-   chmod u+x one-api
-   ./one-api --port 3000 --log-dir ./logs
-   ```
-3. 访问 [http://localhost:3000/](http://localhost:3000/) 并登录。初始账号用户名为 `root`，密码为 `123456`。
-
-更加详细的部署教程[参见此处](https://iamazing.cn/page/how-to-deploy-a-website)。
-
-### 多机部署
-1. 所有服务器 `SESSION_SECRET` 设置一样的值。
-2. 必须设置 `SQL_DSN`，使用 MySQL 数据库而非 SQLite，所有服务器连接同一个数据库。
-3. 所有从服务器必须设置 `NODE_TYPE` 为 `slave`，不设置则默认为主服务器。
-4. 设置 `SYNC_FREQUENCY` 后服务器将定期从数据库同步配置，在使用远程数据库的情况下，推荐设置该项并启用 Redis，无论主从。
-5. 从服务器可以选择设置 `FRONTEND_BASE_URL`，以重定向页面请求到主服务器。
-6. 从服务器上**分别**装好 Redis，设置好 `REDIS_CONN_STRING`，这样可以做到在缓存未过期的情况下数据库零访问，可以减少延迟。
-7. 如果主服务器访问数据库延迟也比较高，则也需要启用 Redis，并设置 `SYNC_FREQUENCY`，以定期从数据库同步配置。
-
-环境变量的具体使用方法详见[此处](#环境变量)。
-
-### 宝塔部署教程
-
-详见 [#175](https://github.com/songquanpeng/one-api/issues/175)。
-
-如果部署后访问出现空白页面，详见 [#97](https://github.com/songquanpeng/one-api/issues/97)。
-
-### 部署第三方服务配合 One API 使用
-> 欢迎 PR 添加更多示例。
-
-#### ChatGPT Next Web
-项目主页：https://github.com/Yidadaa/ChatGPT-Next-Web
-
-```bash
-docker run --name chat-next-web -d -p 3001:3000 yidadaa/chatgpt-next-web
-```
-
-注意修改端口号，之后在页面上设置接口地址（例如：https://openai.justsong.cn/ ）和 API Key 即可。
-
-#### ChatGPT Web
-项目主页：https://github.com/Chanzhaoyu/chatgpt-web
-
-```bash
-docker run --name chatgpt-web -d -p 3002:3002 -e OPENAI_API_BASE_URL=https://openai.justsong.cn -e OPENAI_API_KEY=sk-xxx chenzhaoyu94/chatgpt-web
-```
-
-注意修改端口号、`OPENAI_API_BASE_URL` 和 `OPENAI_API_KEY`。
-
-### 部署到第三方平台
-<details>
-<summary><strong>部署到 Sealos </strong></summary>
-<div>
-
-> Sealos 的服务器在国外，不需要额外处理网络问题，支持高并发 & 动态伸缩。
-
-点击以下按钮一键部署（部署后访问出现 404 请等待 3~5 分钟）：
-
-[![Deploy-on-Sealos.svg](https://raw.githubusercontent.com/labring-actions/templates/main/Deploy-on-Sealos.svg)](https://cloud.sealos.io/?openapp=system-fastdeploy?templateName=one-api)
-
-</div>
-</details>
-
-<details>
-<summary><strong>部署到 Zeabur</strong></summary>
-<div>
-
-> Zeabur 的服务器在国外，自动解决了网络的问题，同时免费的额度也足够个人使用。
-
-1. 首先 fork 一份代码。
-2. 进入 [Zeabur](https://zeabur.com?referralCode=songquanpeng)，登录，进入控制台。
-3. 新建一个 Project，在 Service -> Add Service 选择 Marketplace，选择 MySQL，并记下连接参数（用户名、密码、地址、端口）。
-4. 复制链接参数，运行 ```create database `one-api` ``` 创建数据库。
-5. 然后在 Service -> Add Service，选择 Git（第一次使用需要先授权），选择你 fork 的仓库。
-6. Deploy 会自动开始，先取消。进入下方 Variable，添加一个 `PORT`，值为 `3000`，再添加一个 `SQL_DSN`，值为 `<username>:<password>@tcp(<addr>:<port>)/one-api` ，然后保存。 注意如果不填写 `SQL_DSN`，数据将无法持久化，重新部署后数据会丢失。
-7. 选择 Redeploy。
-8. 进入下方 Domains，选择一个合适的域名前缀，如 "my-one-api"，最终域名为 "my-one-api.zeabur.app"，也可以 CNAME 自己的域名。
-9. 等待部署完成，点击生成的域名进入 One API。
-
-</div>
-</details>
-
-## 配置
-系统本身开箱即用。
-
-你可以通过设置环境变量或者命令行参数进行配置。
-
-等到系统启动后，使用 `root` 用户登录系统并做进一步的配置。
-
-**Note**：如果你不知道某个配置项的含义，可以临时删掉值以看到进一步的提示文字。
-
-## 使用方法
-在`渠道`页面中添加你的 API Key，之后在`令牌`页面中新增访问令牌。
-
-之后就可以使用你的令牌访问 One API 了，使用方式与 [OpenAI API](https://platform.openai.com/docs/api-reference/introduction) 一致。
-
-你需要在各种用到 OpenAI API 的地方设置 API Base 为你的 One API 的部署地址，例如：`https://openai.justsong.cn`，API Key 则为你在 One API 中生成的令牌。
-
-注意，具体的 API Base 的格式取决于你所使用的客户端。
-
-```mermaid
-graph LR
-    A(用户)
-    A --->|请求| B(One API)
-    B -->|中继请求| C(OpenAI)
-    B -->|中继请求| D(Azure)
-    B -->|中继请求| E(其他下游渠道)
-```
-
-可以通过在令牌后面添加渠道 ID 的方式指定使用哪一个渠道处理本次请求，例如：`Authorization: Bearer ONE_API_KEY-CHANNEL_ID`。
-注意，需要是管理员用户创建的令牌才能指定渠道 ID。
-
-不加的话将会使用负载均衡的方式使用多个渠道。
-
-### 环境变量
-1. `REDIS_CONN_STRING`：设置之后将使用 Redis 作为缓存使用。
-   + 例子：`REDIS_CONN_STRING=redis://default:redispw@localhost:49153`
-   + 如果数据库访问延迟很低，没有必要启用 Redis，启用后反而会出现数据滞后的问题。
-2. `SESSION_SECRET`：设置之后将使用固定的会话密钥，这样系统重新启动后已登录用户的 cookie 将依旧有效。
-   + 例子：`SESSION_SECRET=random_string`
-3. `SQL_DSN`：设置之后将使用指定数据库而非 SQLite，请使用 MySQL 或 PostgreSQL。
-   + 例子：
-     + MySQL：`SQL_DSN=root:123456@tcp(localhost:3306)/oneapi`
-     + PostgreSQL：`SQL_DSN=postgres://postgres:123456@localhost:5432/oneapi`（适配中，欢迎反馈）
-   + 注意需要提前建立数据库 `oneapi`，无需手动建表，程序将自动建表。
-   + 如果使用本地数据库：部署命令可添加 `--network="host"` 以使得容器内的程序可以访问到宿主机上的 MySQL。
-   + 如果使用云数据库：如果云服务器需要验证身份，需要在连接参数中添加 `?tls=skip-verify`。
-   + 请根据你的数据库配置修改下列参数（或者保持默认值）：
-     + `SQL_MAX_IDLE_CONNS`：最大空闲连接数，默认为 `100`。
-     + `SQL_MAX_OPEN_CONNS`：最大打开连接数，默认为 `1000`。
-       + 如果报错 `Error 1040: Too many connections`，请适当减小该值。
-     + `SQL_CONN_MAX_LIFETIME`：连接的最大生命周期，默认为 `60`，单位分钟。
-4. `FRONTEND_BASE_URL`：设置之后将重定向页面请求到指定的地址，仅限从服务器设置。
-   + 例子：`FRONTEND_BASE_URL=https://openai.justsong.cn`
-5. `SYNC_FREQUENCY`：设置之后将定期与数据库同步配置，单位为秒，未设置则不进行同步。
-   + 例子：`SYNC_FREQUENCY=60`
-6. `NODE_TYPE`：设置之后将指定节点类型，可选值为 `master` 和 `slave`，未设置则默认为 `master`。
-   + 例子：`NODE_TYPE=slave`
-7. `CHANNEL_UPDATE_FREQUENCY`：设置之后将定期更新渠道余额，单位为分钟，未设置则不进行更新。
-   + 例子：`CHANNEL_UPDATE_FREQUENCY=1440`
-8. `CHANNEL_TEST_FREQUENCY`：设置之后将定期检查渠道，单位为分钟，未设置则不进行检查。
-   + 例子：`CHANNEL_TEST_FREQUENCY=1440`
-9. `POLLING_INTERVAL`：批量更新渠道余额以及测试可用性时的请求间隔，单位为秒，默认无间隔。
-   + 例子：`POLLING_INTERVAL=5`
-
-### 命令行参数
-1. `--port <port_number>`: 指定服务器监听的端口号，默认为 `3000`。
-   + 例子：`--port 3000`
-2. `--log-dir <log_dir>`: 指定日志文件夹，如果没有设置，日志将不会被保存。
-   + 例子：`--log-dir ./logs`
-3. `--version`: 打印系统版本号并退出。
-4. `--help`: 查看命令的使用帮助和参数说明。
-
-## 演示
-### 在线演示
-注意，该演示站不提供对外服务：
-https://openai.justsong.cn
-
-### 截图展示
-![channel](https://user-images.githubusercontent.com/39998050/233837954-ae6683aa-5c4f-429f-a949-6645a83c9490.png)
-![token](https://user-images.githubusercontent.com/39998050/233837971-dab488b7-6d96-43af-b640-a168e8d1c9bf.png)
-
-## 常见问题
-1. 额度是什么？怎么计算的？One API 的额度计算有问题？
-   + 额度 = 分组倍率 * 模型倍率 * （提示 token 数 + 补全 token 数 * 补全倍率）
-   + 其中补全倍率对于 GPT3.5 固定为 1.33，GPT4 为 2，与官方保持一致。
-   + 如果是非流模式，官方接口会返回消耗的总 token，但是你要注意提示和补全的消耗倍率不一样。
-   + 注意，One API 的默认倍率就是官方倍率，是已经调整过的。
-2. 账户额度足够为什么提示额度不足？
-   + 请检查你的令牌额度是否足够，这个和账户额度是分开的。
-   + 令牌额度仅供用户设置最大使用量，用户可自由设置。
-3. 提示无可用渠道？
-   + 请检查的用户分组和渠道分组设置。
-   + 以及渠道的模型设置。
-4. 渠道测试报错：`invalid character '<' looking for beginning of value`
-   + 这是因为返回值不是合法的 JSON，而是一个 HTML 页面。
-   + 大概率是你的部署站的 IP 或代理的节点被 CloudFlare 封禁了。
-5. ChatGPT Next Web 报错：`Failed to fetch`
-   + 部署的时候不要设置 `BASE_URL`。
-   + 检查你的接口地址和 API Key 有没有填对。
-   + 检查是否启用了 HTTPS，浏览器会拦截 HTTPS 域名下的 HTTP 请求。
-6. 报错：`当前分组负载已饱和，请稍后再试`
-   + 上游通道 429 了。
-
-## 相关项目
-* [FastGPT](https://github.com/labring/FastGPT): 基于 LLM 大语言模型的知识库问答系统
-* [ChatGPT Next Web](https://github.com/Yidadaa/ChatGPT-Next-Web):  一键拥有你自己的跨平台 ChatGPT 应用
-
-## 注意
-
-本项目使用 MIT 协议进行开源，**在此基础上**，必须在页面底部保留署名以及指向本项目的链接。如果不想保留署名，必须首先获得授权。
-
-同样适用于基于本项目的二开项目。
-
-依据 MIT 协议，使用者需自行承担使用本项目的风险与责任，本开源项目开发者与此无关。
