@@ -161,7 +161,7 @@ docker-compose up -d
 ```
 
 ## 购买方式
-### 二开版售价598，拉你进专属用户群，永久更新 
+### 二开版售价988，双十二特惠 888，拉你进专属用户群，永久更新 
 ![img_32.png](img_32.png)
 ### 咨询交流群696967655
 ![f0057e3f2cdaa563b329a9e7f8f696d2](https://github.com/akl7777777/one-api/assets/84266551/0ef67dd8-ea20-4b37-9e08-6e80b941beef)
