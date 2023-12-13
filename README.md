@@ -13,8 +13,9 @@
 
 </div>
 
-- 🔵 **NOTE**: Shell API 提供完善的渠道管理方案，完全不同于套壳卖皮肤的[Pro](https://nanjiren.online/modelserver/aimhub/)
 
+
+> **NOTE**: Shell API 提供完善的渠道管理方案，完全不同于套壳卖皮肤的[Pro](https://nanjiren.online/modelserver/aimhub/)
 
 ## 新版特性
 待完善，可直接查看演示和截图
