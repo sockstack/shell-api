@@ -15,90 +15,81 @@
 
 
 ## 新版特性
-
-0. 与开源版完全兼容
-    + [x] 保留旧版所有配置，直接迁移，开箱即用
-1. 全新UI震撼来袭
-    + [x] 支持切换旧版
-    + [x] 提示消息内容基本汉化
-    + [x] 增加分页器，每页展示内容更多
-    + [x] 增加表头筛选，快速筛选对应内容
-    + [x] 支持自选导航位置（顶栏/侧栏）
-    + [x] 增强日志展示，方便定位问题
-    + [x] 增加一键填写美金额度令牌，无需手动输入
-    + [x] 增加一键复制用户信息、修改用户额度功能
-    + [x] 增加悬浮按钮，方便用户快速查看文档、联系方式等
-    + [x] 增加快捷按钮，快速增加用户余额和令牌有效期
-    + [ ] 支持自定义配置悬浮按钮、友情链接
-    + [ ] 适配手机版页面
-    + [ ] 全新仪表盘，所有数据一览无遗
-    + [ ] 优化日志展示，支持日志导出
-    + [ ] 自选主题市场
-    + [ ] 支持切换深色模式
-2. 更多高级功能
-    + [x] 强制指定渠道使用顺序
-        + 如通道A、B配置顺序为3，通道C配置顺序为2，则只有A和B都被禁用才会使用C
-    + [x] 支持429超频报错自动禁用
-        + 超过频率限制的请求会自动禁用，避免重复返回超频报错
-    + [x] 支持渠道超频自动复活
-        + 超频禁用后每隔指定配置的时间自动测试通道,测试通过则自动启用
-    + [x] 新增一键超频功能
-        + 配置渠道时，一键点击即可开启超频
-    + [x] 优化测速方案,支持**流式测速**、**自定义模型测速**等
-    + [x] 支持KEY维度限制可用模型
-    + [x] 支持自定义渠道链接
-    + [x] 日志展示渠道名称，且可以根据渠道名称搜索过滤
-    + [x] 优化测速方式，相较原版节省更多token
-    + [x] OpenAI支持指定组织消耗
-    + [x] 编辑的时候可以控制显示/隐藏秘钥
-    + [x] 用户请求、响应的内容存表并支持前端查询
-    + [x] **修复原始版本余额不足的用户去请求时候会自动禁用通道的bug**
-    + [x] 增加自定义测速以及JSON一键填入功能，打破原版默认只有3.5测速的局限
-    + [x] 查询余额支持跨域请求
-    + [x] 增加高级测速功能
-    + [x] 防止openai抽风超额扣费出现的的的的的的的的的的的
-    + [x] 增加对话一键填充令牌功能
-    + [x] 增加SMTP 配置发送测试邮件 
-    + [x] 全新适配最新 gpt-4v、gpt-turbo、tts 等 模型
-    + [ ] 支持*.edu.cn 的通配符邮箱白名单
-    + [ ] 新增渠道分组功能，更符合实际使用场景
-    + [ ] 新增渠道组功能，更符合实际使用场景
+待完善，可直接查看演示和截图
 ## 在线演示
 [https://demo.oneapi.plus](https://demo.oneapi.plus)
 ## 截图展示
-##### 注意：截图仅更新到v0.5.0，请以在线演示为准
-![img.png](img.png)
-![img_1.png](img_1.png)
-![img_2.png](img_2.png)
-![img_3.png](img_3.png)
-![img_7.png](img_7.png)
-![img_4.png](img_4.png)
-![img_5.png](img_5.png)
-![img_6.png](img_6.png)
-![img_8.png](img_8.png)
-![img_9.png](img_9.png)
-![img_10.png](img_10.png)
-![img_11.png](img_11.png)
-![img_12.png](img_12.png)
-![img_31.png](img_31.png)
-![img_13.png](img_13.png)
-![img_30.png](img_30.png)
-![img_14.png](img_14.png)
-![img_15.png](img_15.png)
-![img_16.png](img_16.png)
-![img_17.png](img_17.png)
-![img_18.png](img_18.png)
-![img_19.png](img_19.png)
-![img_20.png](img_20.png)
-![img_21.png](img_21.png)
-![img_22.png](img_22.png)
-![img_23.png](img_23.png)
-![img_24.png](img_24.png)
-![img_25.png](img_25.png)
-![img_26.png](img_26.png)
-![img_27.png](img_27.png)
-![img_28.png](img_28.png)
-![img_29.png](img_29.png)
+##### 注意：截图仅更新到v0.9.0，请以最新版本为准
+![image](https://github.com/akl7777777/one-api/assets/135022988/ac8147e1-c80b-4540-9e09-c2e22ec4b118)
+![image](https://github.com/akl7777777/one-api/assets/135022988/2f9f4f14-9473-4b37-a256-cec20f2318dd)
+![image](https://github.com/akl7777777/one-api/assets/135022988/d240b93b-2dc1-4257-b86e-0d171c008e5a)
+![image](https://github.com/akl7777777/one-api/assets/135022988/547b409d-2ff5-4e31-b644-0e8706617cbc)
+![image](https://github.com/akl7777777/one-api/assets/135022988/bf79046a-6b14-40b3-947e-a437a99012d8)
+![image](https://github.com/akl7777777/one-api/assets/135022988/f74abf1f-5570-4965-a2cc-b570b04d1490)
+![image](https://github.com/akl7777777/one-api/assets/135022988/55555319-27e7-4536-83df-b2b351dd5eca)
+![image](https://github.com/akl7777777/one-api/assets/135022988/44f39050-7a05-4d9d-b117-16124898d59e)
+!image](https://github.com/akl7777777/one-api/assets/135022988/62afcd22-4251-4005-ace0-6c0124b8af6c)
+<img width="2276" alt="image" src="https://github.com/akl7777777/one-api/assets/135022988/113b98d7-ff98-4df9-aa39-9a3477083603">
+<img width="2276" alt="image" src="https://github.com/akl7777777/one-api/assets/135022988/140658f9-189b-40e8-9d1d-7efdf66594b9">
+<img width="2271" alt="image" src="https://github.com/akl7777777/one-api/assets/135022988/601b1ee3-4ce0-4446-a8ec-4c5998d416b0">
+![image](https://github.com/akl7777777/one-api/assets/135022988/a7f4b71c-bf5b-4cd9-9948-151b68e0a5df)
+![image](https://github.com/akl7777777/one-api/assets/135022988/b942be66-d2a6-4e93-82ab-c786245ad06e)
+![image](https://github.com/akl7777777/one-api/assets/135022988/643d6142-5ff7-4e1d-a04f-cdd1fab54870)
+![image](https://github.com/akl7777777/one-api/assets/135022988/733efdfd-9c5b-44e8-abdd-95c858b403fe)
+![image](https://github.com/akl7777777/one-api/assets/135022988/baef8e1e-5622-4123-8fe5-51c12e2f6a8b)
+![image](https://github.com/akl7777777/one-api/assets/135022988/f15b04b7-f480-44ff-9c3e-5147facafa7b)
+![image](https://github.com/akl7777777/one-api/assets/135022988/72016416-407b-4c5f-af62-4d64b0dda6c9)
+![image](https://github.com/akl7777777/one-api/assets/135022988/b96e1b7f-3e96-41fb-a8a1-da7dd7057c50)
+![image](https://github.com/akl7777777/one-api/assets/135022988/15ab1ceb-f6f7-4564-b816-73990d9da2c8)
+<img width="2276" alt="image" src="https://github.com/akl7777777/one-api/assets/135022988/16c57c32-2f7c-46d2-b231-39d3cf03ccd2">
+![image](https://github.com/akl7777777/one-api/assets/135022988/fac88a1d-e06b-4ded-b5c9-0de68a380fc0)
+![image](https://github.com/akl7777777/one-api/assets/135022988/0d0f50ee-3a1d-431c-8e7c-5946cac884e7)
+<img width="2276" alt="image" src="https://github.com/akl7777777/one-api/assets/135022988/e3895787-dcaa-421b-b77c-7dd084c39e3a">
+![image](https://github.com/akl7777777/one-api/assets/135022988/53bd3e65-b13f-4f7a-9c89-c449b4421e1d)
+<img width="2275" alt="image" src="https://github.com/akl7777777/one-api/assets/135022988/c9d3c921-6a04-4caa-9fd5-bf73de9f19d0">
+![image](https://github.com/akl7777777/one-api/assets/135022988/23fbd296-5a3b-4d62-9dbf-56e296f97914)
+![image](https://github.com/akl7777777/one-api/assets/135022988/a4ff3eb0-161e-4237-a8ba-3d8e06f92e2f)
+![image](https://github.com/akl7777777/one-api/assets/135022988/b1288683-e963-42dd-9dcc-bef7d4c89a07)
+![image](https://github.com/akl7777777/one-api/assets/135022988/e50e1696-6e75-4a1c-bea7-9b2361988910)
+![image](https://github.com/akl7777777/one-api/assets/135022988/767a1082-2394-4947-9e54-5a2e3d0d3442)
+![image](https://github.com/akl7777777/one-api/assets/135022988/d8a148db-f65d-4dca-9741-b6a5af6d3269)
+![image](https://github.com/akl7777777/one-api/assets/135022988/f653fb8e-d087-4be5-8738-f3dd640ab391)
+<img width="2275" alt="image" src="https://github.com/akl7777777/one-api/assets/135022988/40df55ee-02ff-4c71-a7d8-f65e9e4a3179">
+![image](https://github.com/akl7777777/one-api/assets/135022988/a1f5effb-c7d7-4587-bae6-908bfe430e61)
+![image](https://github.com/akl7777777/one-api/assets/135022988/df5db26e-1a38-433f-90a0-b80642d537c0)
+![image](https://github.com/akl7777777/one-api/assets/135022988/27534224-4c26-4d02-bfdf-49f9769996cb)
+![image](https://github.com/akl7777777/one-api/assets/135022988/ba68da42-c0af-4ae3-97ac-98528e99cc8a)
+<img width="2275" alt="image" src="https://github.com/akl7777777/one-api/assets/135022988/ee467dec-2c9b-4cdc-8906-b3e2c3561a1f">
+<img width="2275" alt="image" src="https://github.com/akl7777777/one-api/assets/135022988/60f0c415-10ca-464d-8027-3501446b0e43">
+![image](https://github.com/akl7777777/one-api/assets/135022988/3123d720-e9a9-429f-8a6b-382b57861954)
+![image](https://github.com/akl7777777/one-api/assets/135022988/225d5eb0-536e-4667-8be7-72ac26fd54d4)
+![image](https://github.com/akl7777777/one-api/assets/135022988/0da248f0-43ed-4814-9f9b-38aa292d8909)
+![image](https://github.com/akl7777777/one-api/assets/135022988/ce6ef0a0-7c5e-40f2-b40d-612e31c045f4)
+![image](https://github.com/akl7777777/one-api/assets/135022988/530a7ecb-a0dd-487b-a26e-a68f168f604e)
+![image](https://github.com/akl7777777/one-api/assets/135022988/be5524d8-fc6a-4ffd-9366-a6b1ff04b89e)
+![image](https://github.com/akl7777777/one-api/assets/135022988/51a46ced-6942-42e5-8e57-8cc8a290388d)
+![image](https://github.com/akl7777777/one-api/assets/135022988/34c7d6b0-aabc-4dbc-95f0-4d43bfc883ab)
+![image](https://github.com/akl7777777/one-api/assets/135022988/a092ad58-5934-448c-8945-c7ae01d6d480)
+![image](https://github.com/akl7777777/one-api/assets/135022988/ae27183f-2647-4045-ab6b-4ab77d9a446f)
+![image](https://github.com/akl7777777/one-api/assets/135022988/61cb5433-6e7c-49ee-910d-2292a89b96e7)
+![image](https://github.com/akl7777777/one-api/assets/135022988/02ddfc03-5605-4171-89b6-ce58761df1fd)
+![image](https://github.com/akl7777777/one-api/assets/135022988/acfc726a-753d-4588-a07b-fef0946c3887)
+![image](https://github.com/akl7777777/one-api/assets/135022988/c62027b6-ccc4-4b10-a1c6-c74178fa698f)
+![image](https://github.com/akl7777777/one-api/assets/135022988/24f7b7df-b5d5-4419-bb7d-64d612417387)
+![image](https://github.com/akl7777777/one-api/assets/135022988/006a9518-c958-4665-a7eb-d7da07f4d0c0)
+![image](https://github.com/akl7777777/one-api/assets/135022988/02b19bd2-d912-437d-b9b3-b6adc70b81c0)
+![image](https://github.com/akl7777777/one-api/assets/135022988/92089c5e-f049-4d87-8175-8cd40d1b19b8)
+![image](https://github.com/akl7777777/one-api/assets/135022988/01ddfe65-06e3-4024-b0a5-9234cea887a4)
+
+## 好评如潮
+![image](https://github.com/akl7777777/one-api/assets/135022988/c7237526-ba6c-4209-b820-3de90fb4a345)
+![image](https://github.com/akl7777777/one-api/assets/135022988/64c30186-9918-47f9-b199-018889410975)
+![image](https://github.com/akl7777777/one-api/assets/135022988/60c348aa-bc07-4eaf-92a1-e11c2b0d7bf8)
+![image](https://github.com/akl7777777/one-api/assets/135022988/160b006a-7112-4f79-9ced-142435e7b3cd)
+![image](https://github.com/akl7777777/one-api/assets/135022988/57295c6f-1d34-4d78-98a2-2f506bb3d84d)
+![image](https://github.com/akl7777777/one-api/assets/135022988/870560ca-c8b0-4067-b242-4ad536ab9b0b)
+![image](https://github.com/akl7777777/one-api/assets/135022988/1370222f-ec78-4eb7-bb67-2af33112fa82)
+
 ## 部署
 ### 一、首次安装
 #### 1.连接云服务器
