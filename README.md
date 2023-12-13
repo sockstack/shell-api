@@ -13,6 +13,8 @@
 
 </div>
 
+- 🔵 **NOTE**: Shell API 提供完善的渠道管理方案，完全不同于套壳卖皮肤的[Pro](https://nanjiren.online/modelserver/aimhub/)
+
 
 ## 新版特性
 待完善，可直接查看演示和截图
@@ -22,7 +24,6 @@
 ##### 注意：截图仅更新到v0.9.0，请以最新版本为准
 ![image](https://github.com/akl7777777/one-api/assets/135022988/ac8147e1-c80b-4540-9e09-c2e22ec4b118)
 ![image](https://github.com/akl7777777/one-api/assets/135022988/2f9f4f14-9473-4b37-a256-cec20f2318dd)
-![image](https://github.com/akl7777777/one-api/assets/135022988/d240b93b-2dc1-4257-b86e-0d171c008e5a)
 ![image](https://github.com/akl7777777/one-api/assets/135022988/547b409d-2ff5-4e31-b644-0e8706617cbc)
 ![image](https://github.com/akl7777777/one-api/assets/135022988/bf79046a-6b14-40b3-947e-a437a99012d8)
 ![image](https://github.com/akl7777777/one-api/assets/135022988/f74abf1f-5570-4965-a2cc-b570b04d1490)
