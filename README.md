@@ -90,6 +90,10 @@
 ![image](https://github.com/akl7777777/one-api/assets/135022988/57295c6f-1d34-4d78-98a2-2f506bb3d84d)
 ![image](https://github.com/akl7777777/one-api/assets/135022988/870560ca-c8b0-4067-b242-4ad536ab9b0b)
 ![image](https://github.com/akl7777777/one-api/assets/135022988/1370222f-ec78-4eb7-bb67-2af33112fa82)
+![image](https://github.com/akl7777777/one-api/assets/135022988/60e79856-4676-4130-b394-50bae88cc1a9)
+![image](https://github.com/akl7777777/one-api/assets/135022988/4b988a34-c9c4-45e6-a2d1-3dfcd90ebf3f)
+
+
 
 ## 部署
 ### 一、首次安装
